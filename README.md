@@ -156,6 +156,11 @@ f x = f1 x <> f2 x
 f = f1 <> f2
 ```
 
+```haskell
+f x = f1 x <> f2 x <> f3 x <> fn x
+f = f1 <> f2 <> f3 <> fn
+```
+
 </details>
 
 <details><summary>Function as Monoid</summary>
