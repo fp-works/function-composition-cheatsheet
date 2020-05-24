@@ -100,9 +100,10 @@ f = fn .> f3 .> f2 .> f1
 ```
 
 ```haskell
--- Functor Law
-f <$> id == f
+-- Functor Laws
 id <$> f == f
+f <$> id == f
+(f <$> g) <$> h = f <$> (g <$> h)
 ```
 
 </details>
@@ -147,6 +148,13 @@ f = f1 =<< f2
 f = f2 >>= f1
 ```
 
+```haskell
+-- Monad Laws
+pure a >>= f = f a
+f >>= pure = f
+(f >>= g) >>= h = f >>= (\x -> g x >>= h)
+```
+
 </details>
 
 <details><summary>Function as Semigroup</summary>
@@ -168,6 +176,13 @@ f = f1 <> f2 <> f3 <> fn
 ```haskell
 f x = f1 x <> mempty
 f = f1 <> mempty
+```
+
+```haskell
+-- Monoid Laws
+mempty <> f = f
+f <> mempty = f
+(f <> g) <> h = f <> (g <> h)
 ```
 
 </details>
